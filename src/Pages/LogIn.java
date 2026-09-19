@@ -73,8 +73,19 @@ public class LogIn extends JFrame implements ActionListener {
     }
 
 
-    // FUNCTION TO CREATE LOGIN/SIGNUP UI
-    private void createUI() {
+    // MAIN FRAME
+    public LogIn() {
+
+        setTitle("E-Vote");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1000, 600);
+        setResizable(false);
+        setBackground(ALT_FONTS);
+        setLayout(null);
+
+        createSideUI();
+
+        add(sidePane);
 
         // TITLE
         title = new JLabel("Welcome Back!");
@@ -303,23 +314,6 @@ public class LogIn extends JFrame implements ActionListener {
 
         add(passwordError);
 
-    }
-
-
-    // MAIN FRAME
-    public LogIn() {
-
-        setTitle("E-Vote");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 600);
-        setResizable(false);
-        setBackground(ALT_FONTS);
-        setLayout(null);
-
-        createSideUI();
-        createUI();
-
-        add(sidePane);
 
         // BUTTONS
         login.addActionListener(this);
@@ -419,7 +413,8 @@ public class LogIn extends JFrame implements ActionListener {
 
             if (!usernameError.isVisible() && !passwordError.isVisible()) {
 
-                System.out.println("Login Successful");
+                new UserInterface();
+                dispose();
             }
         }
     }
