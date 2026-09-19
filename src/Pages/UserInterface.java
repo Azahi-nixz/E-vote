@@ -13,17 +13,41 @@ public class UserInterface extends JFrame implements ActionListener {
 
     private final String sideBtn[] = {"Home", "Vote", "Account"};
 
+    // SIDE UI
+    private JPanel sideUI;
     private JLabel user;
 
+    // MAIN UI
+    private JPanel mainUI;
+
     // HOME UI
+    private JLabel welcome;
+    private JLabel subtitle;
+
+    private JPanel electionCard;
+    private JLabel electionTitle;
+    private JLabel electionValue;
+
+    private JPanel statusCard;
+    private JLabel statusTitle;
     private JLabel status;
 
-    // PANEL
-    JPanel sideUI = new JPanel();
-    JPanel mainUI = new JPanel();
+    private JPanel accountCard;
+    private JLabel accountTitle;
+    private JLabel accountValue;
+
+    private JLabel currentElection;
+
+    private JPanel electionPanel;
+    private JLabel electionName;
+    private JLabel electionDescription;
+    private JButton viewButton;
+
 
     // FUNCTION TO CREATE SIDE PANEL
     public void sidePanel() {
+
+        sideUI = new JPanel();
 
         sideUI.setBackground(BRAND);
         sideUI.setLayout(null);
@@ -82,7 +106,6 @@ public class UserInterface extends JFrame implements ActionListener {
     }
 
 
-
     UserInterface() {
 
         // MAIN FRAME
@@ -97,14 +120,19 @@ public class UserInterface extends JFrame implements ActionListener {
         sidePanel();
 
         add(sideUI);
-        add(mainUI);
+
+        // MAIN PANEL
+        mainUI = new JPanel();
 
         mainUI.setBackground(ALT_FONTS);
         mainUI.setLayout(null);
         mainUI.setBounds(300, 0, 700, 600);
 
+        add(mainUI);
+
+
         // WELCOME TITLE
-        JLabel welcome = new JLabel("Welcome to E-VOTE");
+        welcome = new JLabel("Welcome to E-VOTE");
         welcome.setFont(new Font("Arial", Font.BOLD, 32));
         welcome.setForeground(BRAND);
         welcome.setBounds(40, 40, 600, 45);
@@ -113,7 +141,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
 
         // SUBTITLE
-        JLabel subtitle = new JLabel("Fast. Secure. Efficient.");
+        subtitle = new JLabel("Fast. Secure. Efficient.");
         subtitle.setFont(new Font("Arial", Font.PLAIN, 18));
         subtitle.setForeground(Color.DARK_GRAY);
         subtitle.setBounds(42, 85, 500, 30);
@@ -121,9 +149,9 @@ public class UserInterface extends JFrame implements ActionListener {
         mainUI.add(subtitle);
 
 
-
         // ELECTIONS CARD
-        JPanel electionCard = new JPanel();
+        electionCard = new JPanel();
+
         electionCard.setBackground(ALT_FONTS);
         electionCard.setLayout(null);
         electionCard.setBorder(
@@ -131,14 +159,14 @@ public class UserInterface extends JFrame implements ActionListener {
         );
         electionCard.setBounds(40, 150, 190, 130);
 
-        JLabel electionTitle = new JLabel(
+        electionTitle = new JLabel(
                 "Elections",
                 SwingConstants.CENTER
         );
         electionTitle.setFont(new Font("Arial", Font.PLAIN, 18));
         electionTitle.setBounds(0, 15, 190, 30);
 
-        JLabel electionValue = new JLabel(
+        electionValue = new JLabel(
                 "0",
                 SwingConstants.CENTER
         );
@@ -152,7 +180,8 @@ public class UserInterface extends JFrame implements ActionListener {
 
 
         // STATUS CARD
-        JPanel statusCard = new JPanel();
+        statusCard = new JPanel();
+
         statusCard.setBackground(ALT_FONTS);
         statusCard.setLayout(null);
         statusCard.setBorder(
@@ -160,7 +189,7 @@ public class UserInterface extends JFrame implements ActionListener {
         );
         statusCard.setBounds(255, 150, 190, 130);
 
-        JLabel statusTitle = new JLabel(
+        statusTitle = new JLabel(
                 "Voting Status",
                 SwingConstants.CENTER
         );
@@ -181,7 +210,8 @@ public class UserInterface extends JFrame implements ActionListener {
 
 
         // ACCOUNT CARD
-        JPanel accountCard = new JPanel();
+        accountCard = new JPanel();
+
         accountCard.setBackground(ALT_FONTS);
         accountCard.setLayout(null);
         accountCard.setBorder(
@@ -189,14 +219,14 @@ public class UserInterface extends JFrame implements ActionListener {
         );
         accountCard.setBounds(470, 150, 190, 130);
 
-        JLabel accountTitle = new JLabel(
+        accountTitle = new JLabel(
                 "Account",
                 SwingConstants.CENTER
         );
         accountTitle.setFont(new Font("Arial", Font.PLAIN, 18));
         accountTitle.setBounds(0, 15, 190, 30);
 
-        JLabel accountValue = new JLabel(
+        accountValue = new JLabel(
                 "NOT VERIFIED",
                 SwingConstants.CENTER
         );
@@ -210,7 +240,7 @@ public class UserInterface extends JFrame implements ActionListener {
 
 
         // CURRENT ELECTION TITLE
-        JLabel currentElection = new JLabel("Current Election");
+        currentElection = new JLabel("Current Election");
         currentElection.setFont(new Font("Arial", Font.BOLD, 24));
         currentElection.setForeground(BRAND);
         currentElection.setBounds(40, 330, 400, 35);
@@ -219,7 +249,8 @@ public class UserInterface extends JFrame implements ActionListener {
 
 
         // CURRENT ELECTION PANEL
-        JPanel electionPanel = new JPanel();
+        electionPanel = new JPanel();
+
         electionPanel.setBackground(ALT_FONTS);
         electionPanel.setLayout(null);
         electionPanel.setBorder(
@@ -227,7 +258,7 @@ public class UserInterface extends JFrame implements ActionListener {
         );
         electionPanel.setBounds(40, 380, 620, 100);
 
-        JLabel electionName = new JLabel(
+        electionName = new JLabel(
                 "Student Council Election"
         );
         electionName.setFont(
@@ -235,7 +266,7 @@ public class UserInterface extends JFrame implements ActionListener {
         );
         electionName.setBounds(20, 15, 350, 30);
 
-        JLabel electionDescription = new JLabel(
+        electionDescription = new JLabel(
                 "Not available yet."
         );
         electionDescription.setFont(
@@ -244,7 +275,8 @@ public class UserInterface extends JFrame implements ActionListener {
         electionDescription.setForeground(Color.DARK_GRAY);
         electionDescription.setBounds(20, 50, 300, 25);
 
-        JButton viewButton = new JButton("View Candidates");
+        viewButton = new JButton("View Candidates");
+
         viewButton.setFont(
                 new Font("Arial", Font.BOLD, 14)
         );
@@ -263,9 +295,8 @@ public class UserInterface extends JFrame implements ActionListener {
 
         mainUI.add(electionPanel);
 
+
         setVisible(true);
-
-
     }
 
 
